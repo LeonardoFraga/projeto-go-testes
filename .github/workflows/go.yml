@@ -40,7 +40,7 @@ jobs:
     - name: Test
       run: go test -v main_test.go
 
-  builds:
+  build:
     needs: test
     runs-on: 'ubuntu-latest'
     steps:
@@ -59,6 +59,6 @@ jobs:
         # The desired behavior if no files are found using the provided path.
 
   docker:
-    needs: builds
+    needs: build
     uses: ./.github/workflows/Docker.yml
     secrets: inherit
